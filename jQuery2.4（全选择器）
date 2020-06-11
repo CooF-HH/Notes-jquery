@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <title></title>
+    <style>
+    div {
+        width: 100px;
+        height: 90px;
+        float: left;
+        padding: 5px;
+        margin: 5px;
+        background-color: #EEEEEE;
+    }
+    </style>
+    <script src="https://www.imooc.com/static/lib/jquery/1.9.1/jquery.js">
+        //IE会将注释节点实现为元素，所以在IE中调用getElementsByTagName里面会包含注释节点，这个通常是不应该的
+        //getElementById的参数在IE8及较低的版本不区分大小写
+        //IE7及较低的版本中，表单元素中，如果表单A的name属性名用了另一个元素B的ID名并且A在B之前，那么getElementById会选中A
+        //IE8及较低的版本，浏览器不支持getElementsByClassName
+    </script>
+</head>
+<body>
+    <div class="aaron">
+        <p>class="aaron"</p>
+        <p>选中</p>
+    </div>
+    <div class="aaron">
+        <p>class="aaron"</p>
+        <p>选中</p>
+    </div>
+    <div class="imooc">
+        <p>class="imooc"</p>
+        <p>jQuery选中</p>
+    </div>
+    <div class="imooc">
+        <p>class="imooc"</p>
+        <p>jQuery选中</p>
+    </div>
+
+    <script type="text/javascript">
+        //获取页面中所有的元素
+        var elements1 = document.getElementsByTagName('*');
+    </script>
+    <script type="text/javascript">
+        //获取页面中所有的元素
+        var elements2 = $("*")       ;
+        //原生与jQuery方法比较
+        //===表示数据和类型都相等
+        if(elements2.length === elements1.length){
+           elements2.css("border","1px solid red");
+        }
+    </script>
+</body>
+
+</html>

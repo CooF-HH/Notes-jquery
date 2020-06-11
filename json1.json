@@ -1,0 +1,10 @@
+{
+	"name":"coolf",
+	"age":25.2,
+	"birthday":"1990-01-01",
+	"school":"SUST",
+	"major":["computer","pe","羽毛球"],
+	"has_girlfriend":false,
+	"car":null,
+	"house":null
+}

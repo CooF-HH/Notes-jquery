@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>使用ajax()方法加载服务器数据</title>
+        <script src="https://www.imooc.com/static/lib/jquery/1.9.1/jquery.js" type="text/javascript">
+            /*使用ajax()方法是最底层、功能最强大的请求服务器数据的方法，它不仅可以获取服务器返回的数据，还能向服务器发送请求并传递数值，它的调用格式如下：
+jQuery.ajax([settings])或$.ajax([settings])
+其中参数settings为发送ajax请求时的配置对象，在该对象中，url表示服务器请求的路径，data为请求时传递的数据，dataType为服务器返回的数据类型，success为请求成功的执行的回调函数，type为发送数据请求的方式，默认为get。*/
+        </script>
+        <style type="text/css">
+        #divtest
+{
+    width: 282px;
+}
+#divtest .title
+{
+    padding: 8px;
+    background-color:Blue;
+    color: #fff;
+    height: 23px;
+    line-height: 23px;
+    font-size: 15px;
+    font-weight: bold;
+}
+ul
+{
+    float: left;
+    width: 280px;
+    padding: 5px 0px;
+    margin: 0px;
+    font-size: 14px;
+    list-style-type: none;
+}
+ul li
+{
+    float: left;
+    width: 280px;
+    height: 23px;
+    line-height: 23px;
+    padding: 3px 8px;
+}
+.fl
+{
+    float: left;
+}
+.fr
+{
+    float: right;
+}
+    </style>
+    </head>
+    
+    <body>
+        <div id="divtest">
+            <div class="title">
+                <span class="fl">检测数字的奇偶性</span> 
+                <span class="fr">
+                    <input id="btnCheck" type="button" value="检测" />
+                </span>
+            </div>
+            <ul>
+               <li>请求输入一个数字 
+                   <input id="txtNumber" type="text" size="12" />
+               </li>
+            </ul>
+        </div>
+        
+        <script type="text/javascript">
+            $(function () {
+                $("#btnCheck").bind("click", function () {
+                    $.ajax({
+                       type:"post",
+                        url:"https://www.imooc.com/data/check.php",
+                        data: { num: $("#txtNumber").val() },
+                        dataType:"text",
+                        success: function (data) {
+                            $("ul").append("<li>你输入的<b>  "
+                            + $("#txtNumber").val() + " </b>是<b> "
+                            + data + " </b></li>");
+                        }
+                    });
+                })
+            });
+        </script>
+    </body>
+</html>
